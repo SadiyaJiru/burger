@@ -47,7 +47,7 @@ function objToSql(ob) {
 var orm = {
     //SELECT * FROM burgers
     selectAll: function(table, cb){
-        var query = "SELECT * FROM" + table + "";
+        var query = "SELECT * FROM " + table + ";";
         connection.query(query, function(err, result){
             if (err) throw err;
             cb(result)
@@ -55,7 +55,7 @@ var orm = {
     },
 // INSERT INTO burgers (burger_name) VALUES ??
     insertOne:function(table, cols, vals, cb){
-        var query = "INSERT INTO" + table;
+        var query = "INSERT INTO " + table;
         query += " (";
         query += cols.toString();
         query += ") ";
@@ -80,10 +80,10 @@ updateOne: function(table, objColVals, condition, cb) {
 
     // UPDATE burgers SET burger_names = "Big Mac" WHERE ID = 1
     // SET will accept and assign a single value from a query
-    query += " SET ";
+    query += "SET ";
     //convert object key/value pairs to SQL syntax
     query += objToSql(objColVals);
-    query += " WHERE ";
+    query += "WHERE ";
     query += condition;
 
     console.log(query);
