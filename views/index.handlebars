@@ -1,35 +1,16 @@
 <div class="container">
-
+  <section id="Burger">
 <h1>Burgers To Eat</h1>
 <!--Add an Image -->
-<ul>
-  {{#each burgers}}
-    <li>
-      <p>
-        {{this.id}}. {{this.movie}}
 
-        <button data-burgerId="{{this.id}}" class="Devour">Devour</button>
-      </p>
-    </li>
-  {{/each}}
-</ul>
-
-</div> <!--End of Conatiner-->
-
-{{!-- 
-
-<div class="container">
-    <section id="page-name">
-            <iframe id="main-image" src="https://giphy.com/embed/UAXou95E6oPjW" width="480" height="326" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-            <h1>Eat-Da-Buger</h1>
-    </section>
+  </section>
 
     <section class="row">
         <div class="col-md-7 col-left">
             <table>
                 {{#each burgers}}
                     {{#unless devoured}}
-                        {{> burgers/burger-block}}
+                        {{> burgers/burger-par}}
                     {{/unless}}
                 {{/each}}
             </table>
@@ -46,8 +27,10 @@
     <form class="create-form">
         <div class="form-group">
             <label for="name"></label>
-            <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What do you want to eat?"></textarea>
+            <textarea id="name" name="burger-name" rows="2" cols="40" placeholder="What Burger Are You Thinking Of?"></textarea>
         </div>
-        <button type="submit">Add Burger</button>
+        <button type="submit">Add This Burger</button>
     </form>     
-</div> --}}
+</div>
+</div> <!--End of Conatiner-->
+
