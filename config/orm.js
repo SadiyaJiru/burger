@@ -53,7 +53,9 @@ var orm = {
             cb(result)
         })
     },
-// INSERT INTO burgers (burger_name) VALUES ??
+    //CREATE
+// INSERT INTO burgers (burger_name) VALUES ("??")
+
     insertOne:function(table, cols, vals, cb){
         var query = "INSERT INTO " + table;
         query += " (";
@@ -69,7 +71,6 @@ var orm = {
           if (err) {
             throw err;
           }
-    
           cb(result);
         });
     },

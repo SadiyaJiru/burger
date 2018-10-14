@@ -1,25 +1,29 @@
 
 <h1>Burgers To Eat</h1>
 
-<section class = "row">
+<div class = "row">
   <div class="col-md-7 col-left">
           <table>
 <h2>Burgers on the list</h2>
 <ul>
-<!--column from burger table-->
-{{burger_name}}
-<!--loop through burgers array for each burger-->
-{{#each burgers}}
-<!--column property-->
-    {{#unless devoured}}
 
-   {{> burgers-par devour=true}}
-    {{/unless}}
-  {{/each}}
+<!--loop through burgers array for each burger-->
+  <form action="/{{this.id}}?_method=CREATE" method="POST">
+      {{#each burgers}}
+        
+          <p>{{this.id}}. {{this.burger_name}}  <button type="submit" class="btn btn-warning btn-xs" id="devour">Devour</button></p>        
+        
+      {{/each}}
+    </form>
+    
 </ul>
+</table>
 </div>
-</table>  
-<div class="col-md-7 col-left">
+</div>
+
+
+
+{{!-- <div class="col-md-7 col-left">
   <h2>Devoured Burgers</h2>
 
 <!--loop through burgers array for each burger-->
@@ -27,10 +31,11 @@
 <!--If it is devourved just display the burger name-->
 {{#if devoured}}
 <div> id = {{id}}.{{burger_name}} </div>
-
+{{/if}}
 
 </div>
-</section>
+</section> --}}
+{{!-- 
 
 <h2>Add a Burger</h2>
     <form class="create-form">
@@ -40,6 +45,10 @@
         </div>
         <button type="submit">Submut</button>
     </form>     
-</div>
-</div> <!--End of Conatiner-->
+</div> --}}
+<h2>Add a Burger</h2>
+<form action="/" method="POST">
+	<textarea type="text" name="task"></textarea>
 
+	<button type="submit">Submit</button>
+</form>
