@@ -1,33 +1,35 @@
 <h1>Eat Your Burger!</h1>
 
-
+<div class="alignment">
+<h2>Burgers available to eat!</h2>
+<div class="left-uneaten">
 
 <ul>
-    <h2>Burgers not eaten</h2>
+   
  <!--loop through cats array on each cat-->
-  {{#each burger}}
+  {{#each burgers}}
     {{#unless devour}}
     <!--Print the cat information ubless the cat is sleepy -->
     <!--This is a partial, 
     tiny snipets of code that can be used in other other codes-->
      <!--Instead of creating anther template we use the one from Partial-->
-      {{> burgers/burgers-block devour=false}}
+      {{> burgers/burgers-block devour=true}}
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
-<h2>Burgers Devoured!</h2>
-
+<div class="right-eaten">
+<h2>Need to be made again if you want to eat!</h2>
 <ul>
-  {{#each burger}}
- <!--Print the cat information if the burger is eaten -->
+  {{#each burgers}}
 
     {{#if devour}}
-      {{> burgers/burgers-block devour=true}}
+      {{> burgers/burgers-block devour=false}}
     {{/if}}
   {{/each}}
 </ul>
-
+</div>
 <h2>Add a Burger</h2>
 <form class="create-form">
 
