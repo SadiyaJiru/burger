@@ -46,28 +46,30 @@ function objToSql(ob) {
 
 var orm = {
     //SELECT * FROM burgers
-    selectAll: function(table, cb){
-        var query = "SELECT * FROM " + table + ";";
+    all: function(tableInput, cb){
+        var query = "SELECT * FROM " + tableInput + ";";
         connection.query(query, function(err, result){
             if (err) throw err;
+            console.log(query);
+
             cb(result)
         })
     },
     //CREATE
 // INSERT INTO burgers (burger_name) VALUES ("??")
 
-    insertOne:function(table, cols, vals, cb){
-        var query = "INSERT INTO " + table;
-        query += " (";
-        query += cols.toString();
-        query += ") ";
-        query += "VALUES (";
-        query += printQuestionMarks(vals.length);
-        query += ") ";
-    
-        console.log(query);
-    
-        connection.query(query, vals, function(err, result) {
+    create: function(table, cols, vals, cb){
+      var queryString = "INSERT INTO " + table;
+
+      queryString += " (";
+      queryString += cols.toString();
+      queryString += ") ";
+      queryString += "VALUES (";
+      queryString += printQuestionMarks(vals.length);
+      queryString += ") ";
+      console.log(queryString);
+
+      connection.query(queryString, vals, function(err, result) {
           if (err) {
             throw err;
           }
@@ -76,7 +78,7 @@ var orm = {
     },
     //update one thing in the table 
    // Example of objColVals would be {burger_name: Big Mac, devour: true}
-updateOne: function(table, objColVals, condition, cb) {
+update: function(table, objColVals, condition, cb) {
     var query = "UPDATE " + table;
 
     // UPDATE burgers SET burger_names = "Big Mac" WHERE ID = 1

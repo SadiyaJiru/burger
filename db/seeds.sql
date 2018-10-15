@@ -1,3 +1,3 @@
-SELECT * FROM burgers_db.burgers;
+SELECT * FROM burgers;
 INSERT INTO burgers (burger_name)
-VALUES ("Big Mac")
+VALUES ("Veggie Burger");
