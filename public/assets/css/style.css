@@ -1,13 +1,14 @@
 body{
-  background: #2BC0E4;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to top, #EAECC6, #2BC0E4);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to top, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-    }
+   background: linear-gradient(to top, #F9D423, #e65c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
+}
+.img {
+ background-image: url(/views/images/burger.png)
+}
   li {
     padding: 5px;
     margin: 5px;
-    background: #faebd7;
+    width: 50%;
   }
   
   .label {
@@ -17,9 +18,13 @@ background: linear-gradient(to top, #EAECC6, #2BC0E4); /* W3C, IE 10+/ Edge, Fir
   .create-update-form {
     padding: 5px;
     margin: 5px;
-    background: aqua;
+    background: #faebd7;
+    width: 50%;
+
   }
   
   .form-group {
     margin-bottom: 5px;
+    width: 50%;
+
   }
