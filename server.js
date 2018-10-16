@@ -28,5 +28,6 @@ var routes = require("./controllers/burgers_controllers.js");
 app.use("/", routes);
 
 
-server.listen(process.env.PORT || port)
+
+app.listen(process.env.PORT || port)
 console.log("Port Listen: " + port)
