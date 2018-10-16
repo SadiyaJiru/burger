@@ -8,9 +8,8 @@ connection = mysql.createConnection({
   port: 3306,
   user: "root",
   password: "",
-  database: "burgersDB",
-  socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'
-
+  database: "burgersDB"
+  
 });
 // };
 connection.connect(function(err) {
