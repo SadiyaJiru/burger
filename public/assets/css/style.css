@@ -1,13 +1,22 @@
 body{
-    background: #f05053;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #e1eec3, #f05053);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f05053, #e1eec3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-       
-    color: black;
+    background: pink;
   }
-/* .Devour{
-    background: white;
-    color: black;
-    padding: 1% 1%;
-    border: black 5px;
-} */
+  li {
+    padding: 5px;
+    margin: 5px;
+    background: #faebd7;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .create-update-form {
+    padding: 5px;
+    margin: 5px;
+    background: aqua;
+  }
+  
+  .form-group {
+    margin-bottom: 5px;
+  }
