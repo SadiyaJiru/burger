@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.16.0"
   },
   "devDependencies": {},
   "scripts": {
@@ -15,8 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/SadiyaJiru/burger.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "heroku"
+  ],
+  "author": "Sadiya Jiru",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/SadiyaJiru/burger/issues"
