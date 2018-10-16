@@ -1,14 +1,13 @@
 body{
-   background: linear-gradient(to top, #F9D423, #e65c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-repeat: no-repeat;
-}
-.img {
- background-image: url(/views/images/burger.png)
-}
+  
+  background: linear-gradient(to right, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
   li {
     padding: 5px;
     margin: 5px;
     width: 50%;
+    background: #faebd7;
   }
   
   .label {
@@ -26,5 +25,14 @@ body{
   .form-group {
     margin-bottom: 5px;
     width: 50%;
+    background: #faebd7;;
+
+  }
+
+  #container{
+    margin-left: 20%;
+  }
+  h1{    margin-left: 20%;
+
 
   }
