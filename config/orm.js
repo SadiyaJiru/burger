@@ -1,104 +1,38 @@
-
-//In the orm.js file, create the methods that will
-// execute the necessary MySQL commands in the controllers.
-// These are the methods you will need to use in order to 
-//retrieve and store data in your database.
-
-//selectAll()
-//insertOne()
-//updateOne()
-
-
-var connection = require("./connection.js");
-function printQuestionMarks(num) {
-    var arr = [];
-  
-    for (var i = 0; i < num; i++) {
-      arr.push("?");
-    }
-  
-    return arr.toString();
-  }
-/******************** */
-// Helper function to convert object key/value pairs to SQL syntax
-function objToSql(ob) {
-    var arr = [];
-  
-    // loop through the keys and push the key/value as a string int arr
-    for (var key in ob) {
-      var value = ob[key];
-      // check to skip hidden properties
-      if (Object.hasOwnProperty.call(ob, key)) {
-        // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
-        if (typeof value === "string" && value.indexOf(" ") >= 0) {
-          value = "'" + value + "'";
-        }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
-        arr.push(key + "=" + value);
-      }
-    }
-  
-    // translate array of strings to a single comma-separated string
-    return arr.toString();
-  }
-  /******************** */
+//Require connections file
+var connection = require('../config/connection.js');
 
 var orm = {
-    //SELECT * FROM burgers
-    all: function(tableInput, cb){
-        var query = "SELECT * FROM " + tableInput + ";";
-        connection.query(query, function(err, result){
-            if (err) throw err;
-            console.log(query);
-
-            cb(result)
-        })
-    },
-    //CREATE
-// INSERT INTO burgers (burger_name) VALUES ("??")
-
-    create: function(table, cols, vals, cb){
-      var queryString = "INSERT INTO " + table;
-
-      queryString += " (";
-      queryString += cols.toString();
-      queryString += ") ";
-      queryString += "VALUES (";
-      queryString += printQuestionMarks(vals.length);
-      queryString += ") ";
-      console.log(queryString);
-
-      connection.query(queryString, vals, function(err, result) {
-          if (err) {
-            throw err;
-          }
-          cb(result);
+    //Display all burgers in DB
+    selectAll: function (callback) {
+        var queryString = "SELECT * FROM burgers";
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            callback(result);
         });
     },
-    //update one thing in the table 
-   // Example of objColVals would be {burger_name: Big Mac, devour: true}
-update: function(table, objColVals, condition, cb) {
-    var query = "UPDATE " + table;
+    //Create Method
+    insertOne: function (burger, callback) {
+        var queryString = "INSERT INTO burgers (burger_name) VALUES (?)";
+        connection.query(queryString, [burger], function (err, result) {
+            if (err) {
+                throw err;
+            }
+            callback(result);
+        });
+    },
+    //Update Method
+    updateOne: function (id, callback) {
+        var queryString = "UPDATE burgers SET devoured = true WHERE id = ?";
 
-    // UPDATE burgers SET burger_names = "Big Mac" WHERE ID = 1
-    // SET will accept and assign a single value from a query
-    query += "SET ";
-    //convert object key/value pairs to SQL syntax
-    query += objToSql(objColVals);
-    query += "WHERE ";
-    query += condition;
-
-    console.log(query);
-    connection.query(query, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
-      cb(result);
-    });
-} //end of orm variable 
-
-}
+        connection.query(queryString, [id], function (err, result) {
+            if (err) {
+                throw err;
+            }
+            callback(result);
+        });
+    }
+};
 
 module.exports = orm;
