@@ -4,3 +4,19 @@ Burger logger with MySQL, Node, Express, Handlebars, & ORM. Follows the MVC desi
 ### App is deployed to Heroku [Click](https://eatyourburger.herokuapp.com)
 
 <img width="539" alt="snippet" src="https://user-images.githubusercontent.com/39322545/47052164-ded56400-d16c-11e8-9097-f1a4dda301cf.png">
+
+#### Pre requisit to run application locally
+$ npm install 
+MySql 
+Express 
+Express-Handlebars 
+method-override 
+body-parser 
+
+
+
+
+#### Authors
+Sadiya Jiru 
+Last updated 10/15/2018 
+
